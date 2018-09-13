@@ -29,7 +29,8 @@ class Stack:
 
     def empty(self):
         return self.head == None
-
+    def size(self):
+        return self.count
 
 def Transfromar(a):
     pila = Stack()
@@ -89,10 +90,13 @@ def Polaca (self,D):
     while (A):
         while(self.top()):
             if (self.top()).isdigit()==False:
+                oterm=self.top()
                 stack.push(self.top())
                 self.pop()
-                oterm=""
-            elif (self.top()).isdigit()==False and term2=0:
+            elif (self.top()).isdigit()==True and term1!=0:
+                term2=self.top()
+                if D==2:
+                    term1,term2 = term2, term1
                 if self.top()=="+":
                     term3=term1+self.top()
                 elif self.top()=="-":
@@ -101,18 +105,20 @@ def Polaca (self,D):
                     term3=term1*term2
                 else:
                     term3=term1/term2
-                term2=0
+                term1=0
                 oterm=""
                 self.pop()
                 stack.pop()
                 stack.pop()
                 stack.push(term3)
-            c=0
+            else:
+                term1=self.top()
+                stack.push(self.top())
+                self.pop()
             while (stack.top()):
                 self.push(stack.top())
                 stack.pop()
-                c+1
-            if c==1:
+            if self.count==1:
                 A=False
     Return self.top()
     
@@ -122,5 +128,6 @@ def Polaca (self,D):
 a = input("ingrese notación polaca: ")
 pila = Stack()
 pila,D = Transfromar(a)
+print Polaca(pila)
 
     
