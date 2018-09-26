@@ -36,20 +36,19 @@ def Transfromar(a):
     pila = Stack()
     b=0
     number=0
-    D=0
+    D=3
     if a[0].isdigit()==True and a[len(a)-1].isdigit()==True:
         D=3
     elif a[0].isdigit()==True:
         D=1
     elif a[len(a)-1].isdigit()==True:
         D=2
-    else:
-        D=3
     while (b!=len(a)):
-        if D==1:
+        if D==3:
             break
         if a[b].isdigit()==True:
             while(a[b].isdigit==True):
+                int(a[b])
                 number=number*10+a[b]
                 b+1
             pila.push(number)
@@ -120,14 +119,14 @@ def Polaca (self,D):
                 stack.pop()
             if self.count==1:
                 A=False
-    Return self.top()
+    return self.top()
     
     
     
-#El input al parecer no finaliza la entrada de datos
 a = input("ingrese notación polaca: ")
 pila = Stack()
+#existe un problema desde aqui
 pila,D = Transfromar(a)
-print Polaca(pila)
+print (Polaca(pila,D))
 
     
